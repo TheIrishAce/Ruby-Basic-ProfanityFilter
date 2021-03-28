@@ -21,7 +21,8 @@ class Checkprofanity
 
     #main
     def self.runcheck(isProfanity)
-        #puts $words
+        #downcase the inputted comment for ease of checking inputs.
+        isProfanity = isProfanity.downcase
         #for loop to check the inputted word against the list of profane words.
         for value in $words do
             if isProfanity.include? value   #used include now match??
@@ -30,8 +31,11 @@ class Checkprofanity
                 #puts(size)
                 #Checkprofanity.censorWord(value)
                 censoredWord = Checkprofanity.censorWord(value)
-                puts(isProfanity = isProfanity.gsub(value, censoredWord))
+                
+                puts(isProfanity)
+                isProfanity = isProfanity.gsub(value, censoredWord)
             end
         end
+        return isProfanity
     end
 end
